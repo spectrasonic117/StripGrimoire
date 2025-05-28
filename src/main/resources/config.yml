@@ -1,0 +1,7 @@
+messages:
+    grimoire-received: "<green>You have received a Strip Grimoire!</green>"
+    grimoire-dropped: "<yellow>Your inventory is full! Strip Grimoire dropped on the ground.</yellow>"
+    config-reloaded: "<green>Configuration has been reloaded successfully!</green>"
+    no-armor: "<red>{player} is not wearing any armor!</red>"
+    armor-stripped: "<green>Successfully stripped armor from {player}!</green>"
+    armor-removed: "<red>Your armor has been removed by {player} using a Strip Grimoire!</red>"
