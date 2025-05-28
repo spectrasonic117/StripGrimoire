@@ -1,9 +1,11 @@
 package com.spectrasonic.StripGrimoire.listeners;
 
 import com.spectrasonic.StripGrimoire.Main;
-import com.spectrasonic.StripGrimoire.utils.ItemUtils;
+import com.spectrasonic.StripGrimoire.utils.GrimoireItem;
 import lombok.RequiredArgsConstructor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -29,10 +31,15 @@ public class ArmorStripListener implements Listener {
         }
         
         ItemStack itemInHand = clicker.getInventory().getItemInMainHand();
-        if (!ItemUtils.isStripGrimoire(itemInHand)) {
+        if (itemInHand == null || itemInHand.getType() != Material.COAL) {
             return;
         }
-        
+
+        ItemMeta meta = itemInHand.getItemMeta();
+        if (meta == null || !meta.hasCustomModelData() || meta.getCustomModelData() != GrimoireItem.GRIMOIRE_CUSTOM_MODEL_DATA) {
+            return;
+        }
+
         PlayerInventory targetInventory = target.getInventory();
         List<ItemStack> armorPieces = Arrays.asList(
             targetInventory.getHelmet(),

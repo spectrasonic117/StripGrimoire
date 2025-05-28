@@ -1,7 +1,7 @@
 package com.spectrasonic.StripGrimoire.listeners;
 
 import com.spectrasonic.StripGrimoire.Main;
-import com.spectrasonic.StripGrimoire.utils.ItemUtils;
+import com.spectrasonic.StripGrimoire.utils.GrimoireItem;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -32,7 +32,7 @@ public class CraftingListener implements Listener {
         List<ItemStack> matrix = Arrays.asList(event.getInventory().getMatrix());
         
         if (isValidGrimoireRecipe(matrix)) {
-            event.getInventory().setResult(ItemUtils.createStripGrimoire());
+            event.getInventory().setResult(GrimoireItem.createStripGrimoire());
         }
     }
     

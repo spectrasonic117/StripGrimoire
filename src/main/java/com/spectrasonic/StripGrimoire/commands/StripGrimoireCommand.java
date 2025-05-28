@@ -3,7 +3,7 @@ package com.spectrasonic.StripGrimoire.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import com.spectrasonic.StripGrimoire.Main;
-import com.spectrasonic.StripGrimoire.utils.ItemUtils;
+import com.spectrasonic.StripGrimoire.utils.GrimoireItem;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 
@@ -17,8 +17,8 @@ public class StripGrimoireCommand extends BaseCommand {
     @CommandPermission("stripgrimoire.admin")
     @Description("Get a Strip Grimoire item")
     public void onGet(Player player) {
-        var grimoire = ItemUtils.createStripGrimoire();
-        
+        var grimoire = GrimoireItem.createStripGrimoire();
+
         if (player.getInventory().firstEmpty() == -1) {
             player.getWorld().dropItem(player.getLocation(), grimoire);
             player.sendMessage(plugin.getConfigManager().getMessage("grimoire-dropped"));
@@ -36,4 +36,3 @@ public class StripGrimoireCommand extends BaseCommand {
         player.sendMessage(plugin.getConfigManager().getMessage("config-reloaded"));
     }
 }
-
