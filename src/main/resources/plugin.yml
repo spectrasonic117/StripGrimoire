@@ -1,0 +1,5 @@
+name: StripGrimoire
+version: '${version}'
+main: com.spectrasonic.StripGrimoire.Main
+api-version: '1.21'
+authors: [Spectrasonic]
