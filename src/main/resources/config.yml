@@ -1,7 +1,7 @@
 messages:
-    grimoire-received: "<green>You have received a Strip Grimoire!</green>"
-    grimoire-dropped: "<yellow>Your inventory is full! Strip Grimoire dropped on the ground.</yellow>"
-    config-reloaded: "<green>Configuration has been reloaded successfully!</green>"
-    no-armor: "<red>{player} is not wearing any armor!</red>"
-    armor-stripped: "<green>Successfully stripped armor from {player}!</green>"
-    armor-removed: "<red>Your armor has been removed by {player} using a Strip Grimoire!</red>"
+    grimoire-received: "<green>¡Has recibido un Grimorio de Despojo!</green>"
+    grimoire-dropped: "<yellow>¡Tu inventario está lleno! El Grimorio de Despojo ha caído al suelo.</yellow>"
+    config-reloaded: "<green>¡La configuración se ha recargado exitosamente!</green>"
+    no-armor: "<red>{player} no está usando ninguna armadura!</red>"
+    armor-stripped: "<green>¡Armadura despojada exitosamente de {player}!</green>"
+    armor-removed: "<red>¡Tu armadura ha sido retirada por {player} usando un Grimorio de Despojo!</red>"

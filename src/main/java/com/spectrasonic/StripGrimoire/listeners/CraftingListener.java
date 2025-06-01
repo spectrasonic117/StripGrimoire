@@ -14,7 +14,7 @@ import org.bukkit.inventory.ShapelessRecipe;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class CraftingListener implements Listener {
@@ -29,30 +29,31 @@ public class CraftingListener implements Listener {
             return;
         }
         
-        List<ItemStack> matrix = Arrays.asList(event.getInventory().getMatrix());
+        List<ItemStack> validItems = Arrays.stream(event.getInventory().getMatrix())
+            .filter(item -> item != null && item.getType() != Material.AIR)
+            .collect(Collectors.toList());
         
-        if (isValidGrimoireRecipe(matrix)) {
+        if (isValidGrimoireRecipe(validItems)) {
             event.getInventory().setResult(GrimoireItem.createStripGrimoire());
         }
     }
     
-    private boolean isValidGrimoireRecipe(List<ItemStack> matrix) {
-        List<ItemStack> items = matrix.stream()
-            .filter(item -> item != null && item.getType() != Material.AIR)
-            .toList();
-        
-        if (items.size() != 2) {
+    private boolean isValidGrimoireRecipe(List<ItemStack> ingredients) {
+        if (ingredients.size() != 2) {
             return false;
         }
-        
-        Optional<ItemStack> enchantedBook = items.stream()
-            .filter(item -> item.getType() == Material.ENCHANTED_BOOK)
-            .findFirst();
-        
-        Optional<ItemStack> goldHelmet = items.stream()
-            .filter(item -> item.getType() == Material.GOLDEN_HELMET)
-            .findFirst();
-        
-        return enchantedBook.isPresent() && goldHelmet.isPresent();
+
+        boolean hasEnchantedBook = false;
+        boolean hasGoldenHelmet = false;
+
+        for (ItemStack item : ingredients) {
+            if (item.getType() == Material.ENCHANTED_BOOK) {
+                hasEnchantedBook = true;
+            } else if (item.getType() == Material.GOLDEN_HELMET) {
+                hasGoldenHelmet = true;
+            }
+        }
+
+        return hasEnchantedBook && hasGoldenHelmet;
     }
 }

@@ -4,6 +4,7 @@ import com.spectrasonic.StripGrimoire.Main;
 import com.spectrasonic.StripGrimoire.utils.GrimoireItem;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.event.EventHandler;
@@ -31,7 +32,7 @@ public class ArmorStripListener implements Listener {
         }
         
         ItemStack itemInHand = clicker.getInventory().getItemInMainHand();
-        if (itemInHand == null || itemInHand.getType() != Material.COAL) {
+        if (itemInHand == null || itemInHand.getType() != Material.ENCHANTED_BOOK) {
             return;
         }
 
@@ -64,6 +65,8 @@ public class ArmorStripListener implements Listener {
         target.sendMessage(plugin.getConfigManager()
             .getMessage("armor-removed", "{player}", clicker.getName()));
         
+        target.playSound(target.getLocation(), Sound.BLOCK_RESPAWN_ANCHOR_DEPLETE, 1.0f, 0.5f);
+
         event.setCancelled(true);
     }
     

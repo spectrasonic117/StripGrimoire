@@ -16,10 +16,10 @@ public class GrimoireItem {
                 "<b><#dd47ff>「<#ff3d9b>Legendary Item</#ff3d9b>」</#dd47ff></b>",
                 "",        
                 "<gray>Un Grimorio Mistico que puede</gray><!italic>",
-                "<gray>quitar la armadura a quien elijas</gray><!italic>",
+                "<gray>desvestir a quien elijas</gray><!italic>",
                 "<dark_gray>-------------------------------</dark_gray>",
                 "<yellow>Click derecho en un jugador</yellow><!italic>",
-                "<yellow>para quitarle la armadura</yellow><!italic>"
+                "<yellow>para desvestir a algun jugador</yellow><!italic>"
             )
             .setCustomModelData(GRIMOIRE_CUSTOM_MODEL_DATA)
             .build();

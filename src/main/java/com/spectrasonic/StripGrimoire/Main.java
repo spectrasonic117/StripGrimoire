@@ -4,6 +4,7 @@ package com.spectrasonic.StripGrimoire;
 import com.spectrasonic.StripGrimoire.commands.StripGrimoireCommand;
 import com.spectrasonic.StripGrimoire.listeners.ArmorStripListener;
 import com.spectrasonic.StripGrimoire.listeners.CraftingListener;
+import com.spectrasonic.Utils.RecipeUtils;
 import com.spectrasonic.StripGrimoire.managers.CommandManager;
 import com.spectrasonic.StripGrimoire.managers.ConfigManager;
 import com.spectrasonic.StripGrimoire.managers.EventManager;
@@ -24,6 +25,8 @@ public final class Main extends JavaPlugin {
         saveDefaultConfig();
         initializeManagers();
         registerComponents();
+
+        RecipeUtils.registerGrimoireRecipe(this);
 
         CommandUtils.setPlugin(this);
         MessageUtils.sendStartupMessage(this);
