@@ -7,18 +7,18 @@ public class GrimoireItem {
 
     public static final int GRIMOIRE_CUSTOM_MODEL_DATA = 100;
 
-    private GrimoireItem() {
-        // Private constructor to prevent instantiation
-    }
+    private GrimoireItem() {}
 
     public static ItemStack createStripGrimoire() {
-        return ItemBuilder.setMaterial("COAL")
-            .setName("<dark_purple>Strip Grimoire</dark_purple><!italic>")
-            .setLore(
-                "<gray>Un tomo Mistico que puede</gray><!italic>",
+        return ItemBuilder.setMaterial("ENCHANTED_BOOK")
+            .setName("<light_purple><b>♢ Strip Grimoire ♢</b></light_purple>")
+                .setLore(
+                "<b><#dd47ff>「<#ff3d9b>Legendary Item</#ff3d9b>」</#dd47ff></b>",
+                "",        
+                "<gray>Un Grimorio Mistico que puede</gray><!italic>",
                 "<gray>quitar la armadura a quien elijas</gray><!italic>",
                 "<dark_gray>-------------------------------</dark_gray>",
-                "<yellow>Click derecho en un jugador </yellow><!italic>",
+                "<yellow>Click derecho en un jugador</yellow><!italic>",
                 "<yellow>para quitarle la armadura</yellow><!italic>"
             )
             .setCustomModelData(GRIMOIRE_CUSTOM_MODEL_DATA)
