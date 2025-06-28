@@ -32,7 +32,7 @@ public class ArmorStripListener implements Listener {
         }
         
         ItemStack itemInHand = clicker.getInventory().getItemInMainHand();
-        if (itemInHand == null || itemInHand.getType() != Material.ENCHANTED_BOOK) {
+        if (itemInHand.getType() != Material.ENCHANTED_BOOK) {
             return;
         }
 

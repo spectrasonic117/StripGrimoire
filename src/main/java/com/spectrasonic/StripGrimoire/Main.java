@@ -1,6 +1,5 @@
 package com.spectrasonic.StripGrimoire;
 
-
 import com.spectrasonic.StripGrimoire.commands.StripGrimoireCommand;
 import com.spectrasonic.StripGrimoire.listeners.ArmorStripListener;
 import com.spectrasonic.StripGrimoire.listeners.CraftingListener;
@@ -14,11 +13,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.spectrasonic.Utils.CommandUtils;
 import com.spectrasonic.Utils.MessageUtils;
 
+@Getter
 public final class Main extends JavaPlugin {
 
     private CommandManager commandManager;
     private EventManager eventManager;
-    @Getter private ConfigManager configManager;
+    private ConfigManager configManager;
 
     @Override
     public void onEnable() {
@@ -49,7 +49,6 @@ public final class Main extends JavaPlugin {
 
     private void registerComponents() {
         commandManager.registerCommand(new StripGrimoireCommand(this));
-        
         eventManager.registerListener(new ArmorStripListener(this));
         eventManager.registerListener(new CraftingListener(this));
     }
