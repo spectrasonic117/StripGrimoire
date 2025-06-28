@@ -2,6 +2,7 @@ package com.spectrasonic.StripGrimoire.listeners;
 
 import com.spectrasonic.StripGrimoire.Main;
 import com.spectrasonic.StripGrimoire.utils.GrimoireItem;
+import com.spectrasonic.StripGrimoire.managers.ParticleManager;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -72,12 +73,14 @@ public class ArmorStripListener implements Listener {
     
     private void stripArmorSafely(Player target, List<ItemStack> armorPieces) {
         PlayerInventory inventory = target.getInventory();
-        
+
         inventory.setHelmet(null);
         inventory.setChestplate(null);
         inventory.setLeggings(null);
         inventory.setBoots(null);
         
+        ParticleManager.playStripParticles(target);
+
         armorPieces.stream()
             .filter(Objects::nonNull)
             .forEach(armor -> {
